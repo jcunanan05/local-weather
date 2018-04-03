@@ -7,21 +7,50 @@ var temperature = document.querySelector('.js-temperature');
 var place = document.querySelector('.js-place');
 var condition = document.querySelector('.js-condition');
 
+
 //use fetch Api for AJAX
-fetch(url)
-  .then(function(response) {
-    if (response.status !== 200) {
-      console.log('Looks like there was a problem. Status Code: ' +
-        response.status);
-      return;
-    }
-  
-    // Examine the text in the response
-    response.json().then(handleJsonData);
-  })
-  .catch(function(err) {
-    console.log('Fetch Error :-S', err);
+function getWeatherData() {
+  fetch(url)
+    .then(function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+    
+      // Examine the text in the response
+      response.json().then(handleJsonData);
+    })
+    .catch(function(err) {
+      console.log('Fetch Error :-S', err);
+    });
+}
+
+
+//get geolocation
+function getLocation() {
+  if(! ("geolocation" in navigator)) return; //geolocation not available
+
+  navigator.geolocation.getCurrentPosition(position => {
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
+    console.log(`lat: ${lat} long: ${long}`);
+
+    setCoordinates(lat, long);
+    updateUrl();
+    getWeatherData();
   });
+}
+
+
+function setCoordinates(lat, long) {
+  latitude = `lat=${lat}`;
+  longitude = `lon=${long}`;
+}
+
+function updateUrl() {
+  url = `${baseUrl}${latitude}&${longitude}`;
+}
 
 
 function handleJsonData(data) {
@@ -37,7 +66,10 @@ function setWeatherData(data) {
 
 
 function updateWeather() {
-  place.textContent = weatherData.name;
+  place.textContent = `${weatherData.name}, ${weatherData.sys.country}`;
   temperature.textContent = `${weatherData.main.temp} °C`;
   condition.textContent = weatherData.weather[0].main;
 }
+
+
+getLocation();
