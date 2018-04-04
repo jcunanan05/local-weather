@@ -4,33 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
   <title>Local Weather</title>
 </head>
 <body>
-  <main>
-    <header>
-      <h1>freeCodeCamp Weather</h1>
-    </header>
-
-    <section>
-      <h3 class="js-place">Place</h3>
-    </section>
-
-    <section>
-      <h3 class="js-temperature">Temperature</h3>
-    </section>
-
-    <section>
-      <h3 class="js-condition">Condition</h3>
-    </section>
-  </main>
-
-
-  <footer>
-    <p>by Jonathan</p>
-  </footer>
-
+  <div class="flex container--fluid center-main">
+    <div class="flex flex--column container">
+      <main class="flex flex--column main center-cross">
+        <header class="header">
+          <h1>freeCodeCamp Weather</h1>
+        </header>
+    
+        <section>
+          <h3 class="js-place">Place</h3>
+        </section>
+    
+        <section>
+          <h3 class="js-temperature">Temperature</h3>
+        </section>
+    
+        <section>
+          <h3 class="js-condition">Condition</h3>
+        </section>
+      </main>
+    
+    
+      <footer>
+        <p>by Jonathan</p>
+      </footer>
+    </div>
+  </div>
   <script src="./script.js"></script>
 </body>
 </html>

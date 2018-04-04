@@ -1,0 +1,50 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  background-color: rgb(173, 173, 173);
+}
+
+header {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+.container--fluid {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 85%;
+}
+
+.center-main {
+  justify-content: center
+}
+
+.center-cross {
+  align-items: center;
+}
+
+.container > main {
+  flex: 1 0 auto;
+}
+
+.container > footer {
+  flex: 0 0 auto;
+}
+
