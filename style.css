@@ -40,6 +40,10 @@ header {
   align-items: center;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .container > main {
   flex: 1 0 auto;
 }

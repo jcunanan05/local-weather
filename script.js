@@ -6,6 +6,7 @@ var weatherData = {};
 var temperature = document.querySelector('.js-temperature');
 var place = document.querySelector('.js-place');
 var condition = document.querySelector('.js-condition');
+var weatherConditions = ["Thunderstorm", "Drizzle", "Rain", "Snow", "Atmosphere", "Clear", "Clouds", "Extreme", "Additional"];
 
 
 //use fetch Api for AJAX
@@ -69,6 +70,25 @@ function updateWeather() {
   place.textContent = `${weatherData.name}, ${weatherData.sys.country}`;
   temperature.textContent = `${weatherData.main.temp} °C`;
   condition.textContent = weatherData.weather[0].main;
+}
+
+
+function weatherConditionExist(weatherCond) {
+  var isExist = false;
+
+  //browser doesn't suppor es6
+  if (! ('includes' in Array.prototype)) {
+    for(var i = 0; i < weatherConditions.length; i++) {
+      if(weatherConditions[i] === weatherCond) {
+        isExist = true; 
+      }
+    }
+
+    return isExist;
+  }
+
+  //supports es6
+  return weatherConditions.includes(weatherCond);
 }
 
 
