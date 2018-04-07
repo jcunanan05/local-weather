@@ -52,3 +52,56 @@ header {
   flex: 0 0 auto;
 }
 
+/* Diff types of weather classes */
+
+.thunderstorm {
+  background: linear-gradient(0deg, #001d5f, #4e4e4e);
+}
+
+.drizzle {
+  background: -moz-linear-gradient(0deg, #00105f, #dcdcdc);
+  background: -webkit-linear-gradient(0deg, #00105f, #dcdcdc);
+  background: linear-gradient(0deg, #00105f, #dcdcdc);
+}
+
+.clouds {
+  background: -moz-linear-gradient(0deg, #737373, #9eb7ff);
+  background: -webkit-linear-gradient(0deg, #737373, #9eb7ff);
+  background: linear-gradient(0deg, #737373, #9eb7ff);
+}
+
+.rain {
+  background: -moz-linear-gradient(0deg, #255fff, #c7fcff);
+  background: -webkit-linear-gradient(0deg, #255fff, #c7fcff);
+  background: linear-gradient(0deg, #255fff, #c7fcff);
+}
+
+.snow {
+  background: -moz-linear-gradient(0deg, #80a1ff, #b3f4ff);
+  background: -webkit-linear-gradient(0deg, #80a1ff, #b3f4ff);
+  background: linear-gradient(0deg, #80a1ff, #b3f4ff);
+}
+
+.atmosphere {
+  background: -moz-linear-gradient(0deg, #7aedff, #00ff7e);
+  background: -webkit-linear-gradient(0deg, #7aedff, #00ff7e);
+  background: linear-gradient(0deg, #7aedff, #00ff7e);
+}
+
+.clear {
+  background: -moz-linear-gradient(0deg, #e6e13f, #a6efff);
+  background: -webkit-linear-gradient(0deg, #e6e13f, #a6efff);
+  background: linear-gradient(0deg, #e6e13f, #a6efff);
+}
+
+.extreme {
+  background: -moz-linear-gradient(0deg, #e63f3f, #3e3e3e);
+  background: -webkit-linear-gradient(0deg, #e63f3f, #3e3e3e);
+  background: linear-gradient(0deg, #e63f3f, #3e3e3e);
+}
+
+.additional {
+  background: -moz-linear-gradient(0deg, #60e63f, #fff700);
+  background: -webkit-linear-gradient(0deg, #60e63f, #fff700);
+  background: linear-gradient(0deg, #60e63f, #fff700);
+}

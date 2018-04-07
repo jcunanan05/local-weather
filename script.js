@@ -6,7 +6,18 @@ var weatherData = {};
 var temperature = document.querySelector('.js-temperature');
 var place = document.querySelector('.js-place');
 var condition = document.querySelector('.js-condition');
-var weatherConditions = ["Thunderstorm", "Drizzle", "Rain", "Snow", "Atmosphere", "Clear", "Clouds", "Extreme", "Additional"];
+var body = document.querySelector('body > div');
+var weatherConditions = {
+  "Thunderstorm": {className: 'thunderstorm'},
+  "Drizzle": {className: 'drizzle'},
+  "Rain": {className: 'rain'},
+  "Snow": {className: 'snow'},
+  "Atmosphere": {className: 'atmosphere'},
+  "Clear": {className: 'clear'},
+  "Clouds": {className: 'clouds'},
+  "Extreme": {className: 'extreme'},
+  "Additional": {className: 'additional'}
+};
 
 
 //use fetch Api for AJAX
@@ -67,28 +78,24 @@ function setWeatherData(data) {
 
 
 function updateWeather() {
+  var weatherCondition = weatherData.weather[0].main;
   place.textContent = `${weatherData.name}, ${weatherData.sys.country}`;
   temperature.textContent = `${weatherData.main.temp} °C`;
-  condition.textContent = weatherData.weather[0].main;
+  condition.textContent = weatherCondition;
+
+  addWeatherColor(weatherCondition);
+}
+
+
+function addWeatherColor(weatherCondition) {
+  if (weatherConditionExist(weatherCondition)) {
+    body.classList.add(weatherConditions[weatherCondition].className)
+  }
 }
 
 
 function weatherConditionExist(weatherCond) {
-  var isExist = false;
-
-  //browser doesn't suppor es6
-  if (! ('includes' in Array.prototype)) {
-    for(var i = 0; i < weatherConditions.length; i++) {
-      if(weatherConditions[i] === weatherCond) {
-        isExist = true; 
-      }
-    }
-
-    return isExist;
-  }
-
-  //supports es6
-  return weatherConditions.includes(weatherCond);
+  return weatherConditions.hasOwnProperty(weatherCond);
 }
 
 
