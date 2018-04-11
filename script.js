@@ -89,7 +89,7 @@ function updateWeather() {
 
 function addWeatherColor(weatherCondition) {
   if (weatherConditionExist(weatherCondition)) {
-    body.classList.add(weatherConditions[weatherCondition].className)
+    body.classList.add(weatherConditions[weatherCondition].className);
   }
 }
 
