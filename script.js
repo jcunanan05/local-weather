@@ -8,15 +8,15 @@ var place = document.querySelector('.js-place');
 var condition = document.querySelector('.js-condition');
 var body = document.querySelector('body > div');
 var weatherConditions = {
-  "Thunderstorm": {className: 'thunderstorm'},
-  "Drizzle": {className: 'drizzle'},
-  "Rain": {className: 'rain'},
-  "Snow": {className: 'snow'},
-  "Atmosphere": {className: 'atmosphere'},
-  "Clear": {className: 'clear'},
-  "Clouds": {className: 'clouds'},
-  "Extreme": {className: 'extreme'},
-  "Additional": {className: 'additional'}
+  "Thunderstorm": {className: 'thunderstorm', idMin: 200, idMax: 232},
+  "Drizzle": {className: 'drizzle', idMin: 300, idMax: 321},
+  "Rain": {className: 'rain', idMin: 500, idMax: 531},
+  "Snow": {className: 'snow', idMin: 600, idMax: 622},
+  "Atmosphere": {className: 'atmosphere', idMin: 701, idMax: 781},
+  "Clear": {className: 'clear', idMin: 800, idMax: 800},
+  "Clouds": {className: 'clouds', idMin: 801, idMax: 804},
+  "Extreme": {className: 'extreme', idMin: 900, idMax: 906},
+  "Additional": {className: 'additional', idMin: 951, idMax: 962}
 };
 
 
@@ -79,23 +79,25 @@ function setWeatherData(data) {
 
 function updateWeather() {
   var weatherCondition = weatherData.weather[0].main;
+  var weatherConditionId = Number(weatherData.weather[0].id);
+
   place.textContent = `${weatherData.name}, ${weatherData.sys.country}`;
   temperature.textContent = `${weatherData.main.temp} °C`;
   condition.textContent = weatherCondition;
 
-  addWeatherColor(weatherCondition);
+  addWeatherColor(weatherConditionId);
 }
 
 
-function addWeatherColor(weatherCondition) {
-  if (weatherConditionExist(weatherCondition)) {
-    body.classList.add(weatherConditions[weatherCondition].className);
+function addWeatherColor(weatherCondId) {
+  //find weather condition id range
+  for (var element in weatherConditions) {
+    // console.log(`${weatherCondId} >= ${weatherConditions[element].idMin} <= ${weatherConditions[element].idMax}`);
+    if (weatherCondId >= weatherConditions[element].idMin && weatherCondId <= weatherConditions[element].idMax) { 
+      body.classList.add(weatherConditions[element].className);
+      break;
+    }
   }
-}
-
-
-function weatherConditionExist(weatherCond) {
-  return weatherConditions.hasOwnProperty(weatherCond);
 }
 
 
