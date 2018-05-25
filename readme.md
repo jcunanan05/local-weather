@@ -3,4 +3,4 @@ This is a front-end certification project for freeCodeCamp. The site gets the lo
 
 ## Learnings:
 * More Flexbox!
-* BEM Naming
+* BEM Naming Convention

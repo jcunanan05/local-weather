@@ -1,0 +1,21 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css');
+@import url('layout.css');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+body {
+  font-family: 'Open Sans', 'sans-serif';
+  font-weight: 300;
+}
+
+h1 {
+  padding-top: 12%;
+}
+
+.header {
+  font-size: 2em;
+}
+
+.header--large {
+  font-size: 4em;
+  font-weight: 100;
+}
